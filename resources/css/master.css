@@ -1,0 +1,203 @@
+div {
+    background-color: lightblue;
+}
+
+    .navbar {
+      margin-top: 0;
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    .jumbotron {
+     margin-bottom: 0;
+   }
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+
+    .container{
+        width: 700px;
+        height: 600px;
+        background-color: rgba(0,0,0,0.2);
+        margin:0 auto;
+        margin-top:40px;
+        padding-top: 10px;
+        padding-left: 50px;
+        border-radius: 15px;
+        -webkit-border-radius:15px;
+        -o-border-radius:15px;
+        -moz-border-radius:15px;
+        color:white;
+        front-weight:bolder;
+        box-shadow: inset -4px -6px rgba(0,0,0,0.0);
+        font-weight: 18px;
+    }
+    .container input[type="text"]{
+        width:260px;
+        height:35px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        padding-left:5px;
+    }
+    .container input[type="text"]{
+        width:260px;
+        height:35px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        padding-left:5px;
+    }
+    .container input[type="email"]{
+        width:260px;
+        height:35px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        padding-left:5px;
+    }
+
+    .container input[type="password"]{
+        width:260px;
+        height:35px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        padding-left:5px;
+    }
+    .container input[type="phone"]{
+        width:260px;
+        height:35px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        padding-left:5px;
+    }
+    .container input[type="blog_name"]{
+        width:260px;
+        height:35px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        padding-left:5px;
+    }
+    .container input[type="blog_descrip"]{
+        width:260px;
+        height:100px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        padding-left:5px;
+    }
+    .container input[type="url"]{
+        width:260px;
+        height:35px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        padding-left:5px;
+    }
+
+    .container input[type="submit"]{
+        width:100px;
+        height:35px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        background-color: grey;
+        font-weight: bolder;
+
+    }
+
+    .aa{
+        width: 500px;
+        height: 390px;
+        background-color: rgba(0,0,0,.1);
+        margin:0 auto;
+        margin-top:40px;
+        padding-top: 10px;
+        padding-left: 50px;
+        border-radius: 15px;
+        -webkit-border-radius:15px;
+        -o-border-radius:15px;
+        -moz-border-radius:15px;
+        color:white;
+        front-weight:bolder;
+        box-shadow: inset -4px -4px rgba(0,0,0,0.6);
+        font-weight: 18px;
+    }
+    .aa input[type="email"]{
+        width:260px;
+        height:35px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        padding-left:5px;
+    }
+    .aa input[type="password"]{
+        width:260px;
+        height:35px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        padding-left:5px;
+    }
+    .aa input[type="submit"]{
+        width:100px;
+        height:35px;
+        border:0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -o-border-radius:5px;
+        -moz-border-radius:5px;
+        background-color: cream;
+        font-weight: bolder;
+        box-shadow: inset -2px -2px rgba(0,0,0,0.6);
+    }
+    body {
+        background-color: lightblue;
+        background-image: url("green.png");
+    background-repeat: repeat-x;
