@@ -13,6 +13,101 @@ class Product
         unset($_SESSION['cart']);
         //header( "url=/orderproduct.php" );
     }
+    public function getRecievedProductInLedger($id){
+        $sql = "SELECT
+        reciepts.r_date AS DATE,
+        product_for_store.before_amount AS b_amount,
+        product_for_store.amount AS recieved,
+        (
+            product_for_store.before_amount + product_for_store.amount
+        ) AS a_amount
+        FROM
+        product_for_store
+        INNER JOIN
+        products
+        ON
+        product_for_store.p_id = products.id
+        INNER JOIN
+        reciepts
+        ON
+        reciepts.id = product_for_store.r_id
+        WHERE
+        product_for_store.p_id = 1
+        ORDER BY
+        DATE ASC;";
+
+        $result = mysqli_query(mysqli_connect("localhost","root","","hstore"), $sql);
+
+        if ($result)
+        return $result;
+        else
+        {
+            die("Database query not working. " . mysqli_error($connection));
+        }
+    }
+    public function getProvidedProductInLedger($id){
+        $sql = "SELECT
+    orders.g_date AS DATE,
+    (users.fname + ' ' + users.lname) AS u_name,
+    orders.g_amount AS given,
+    orders.after_amount AS a_amount
+  FROM
+    product_order
+  INNER JOIN
+    products
+  ON
+    product_order.p_id = products.id
+  INNER JOIN
+    orders
+  ON
+    product_order.order_no = orders.id
+  INNER JOIN
+    users
+  ON
+    users.id = orders.user_id
+  WHERE
+    product_order.p_id = 1
+  ORDER BY
+    DATE ASC";
+
+        $result = mysqli_query(mysqli_connect("localhost","root","","hstore"), $sql);
+
+        if ($result)
+        return $result;
+        else
+        {
+            die("Database query not working. " . mysqli_error($connection));
+        }
+    }
+
+    public function selectLedger($id){
+        $sql = "SELECT * FROM `products` where ptype_id = $id;";
+
+        $result = mysqli_query(mysqli_connect("localhost","root","","hstore"), $sql);
+
+
+        //test if there was a query error
+        if ($result)
+        return $result;
+        else
+        {
+            die("Database query not working. " . mysqli_error($connection));
+        }
+    }
+    public function getAllLedger(){
+        $sql = "SELECT * FROM `product_type`;";
+
+        $result = mysqli_query(mysqli_connect("localhost","root","","hstore"), $sql);
+
+
+        //test if there was a query error
+        if ($result)
+        return $result;
+        else
+        {
+            die("Database query not working. " . mysqli_error($connection));
+        }
+    }
     public function getAllManufacturer()
     {
         $sql = "SELECT `id`, `man_name` FROM `manufecturer`;";
@@ -22,10 +117,10 @@ class Product
 
         //test if there was a query error
         if ($result)
-          return $result;
+        return $result;
         else
-          {
-          die("Database query not working. " . mysqli_error($connection));
+        {
+            die("Database query not working. " . mysqli_error($connection));
         }
     }
     public function getAllProductType()
@@ -37,10 +132,10 @@ class Product
 
         //test if there was a query error
         if ($result)
-          return $result;
+        return $result;
         else
-          {
-          die("Database query not working. " . mysqli_error($connection));
+        {
+            die("Database query not working. " . mysqli_error($connection));
         }
     }
     public function getAllProduct()
@@ -54,10 +149,27 @@ class Product
 
         //test if there was a query error
         if ($result)
-          return $result;
+        return $result;
         else
-          {
-          die("Database query not working. " );
+        {
+            die("Database query not working. " );
+        }
+    }
+    public function getProduct($id)
+    {
+        $sql = "SELECT products.id,p_name,p_amount,specs,man_name,type_name FROM products inner join
+        manufecturer on products.man_id = manufecturer.id inner join
+        product_type on products.ptype_id = product_type.id where products.id = $id";
+
+        $result = mysqli_query(mysqli_connect("localhost","root","","hstore"), $sql);
+
+
+        //test if there was a query error
+        if ($result)
+        return $result;
+        else
+        {
+            die("Database query not working. " . mysqli_error());
         }
     }
     public function getAllCashMemo()
@@ -69,13 +181,13 @@ class Product
 
         //test if there was a query error
         if ($result)
-          return $result;
+        return $result;
         else
-          {
-          die("Database query not working. " );
+        {
+            die("Database query not working. " );
         }
     }
 }
 
 
- ?>
+?>

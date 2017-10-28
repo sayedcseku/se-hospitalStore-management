@@ -54,11 +54,14 @@ if(!$_SESSION['email'])
 			  $result = mysqli_query($connection, $query);
 
 			  if ($result){
-				  $query = "UPDATE products set p_amount = p_amount + '$amount' where id = '$p_id'";
+                  $id = mysqli_insert_id($connection);
+				  $query = "UPDATE product_for_store set before_amount = (
+                      select p_amount from products where id = $p_id
+                  ) - '$amount' where id = '$id'";
 
 
 				 $result = mysqli_query($connection, $query);
-				 if ($result)
+				 if ($result){}
 				  	echo "successful";
 
 			  }

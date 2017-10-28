@@ -1,5 +1,6 @@
 <?php
-    $connection = mysqli_connect("localhost","root","","hstore");
+include_once 'controller/product.php';
+$_Product = new Product();
  ?>
 
 <div class="jumbotron">
@@ -42,13 +43,12 @@
                                 <a class="test" tabindex="-1" href="#">Ledger List <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <?php
-                                        $sql = "SELECT * FROM `product_type` ";
-                                        $result = mysqli_query($connection, $sql);
-                                        if(isset($result)){
-                                        while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+                                        $Result = $_Product->getAllLedger();
+                                        if(isset($Result)){
+                                        while($row=mysqli_fetch_array($Result,MYSQLI_ASSOC)){
 
                                             ?>
-                                            <li><a tabindex="-1" href="#"><?php echo $row['type_name'] ?></a></li>
+                                            <li><a tabindex="-1" href="ledger.php?select=<?php echo $row['id'] ?>"><?php echo $row['type_name'] ?></a></li>
                                             <?php
                                         }
                                     }
