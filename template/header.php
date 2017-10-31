@@ -2,7 +2,12 @@
 include_once 'controller/product.php';
 $_Product = new Product();
  ?>
-
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="resources/css/master.css">
 <div class="jumbotron">
     <div class="text-center">
         <h1>Khulna Medical College Store</h1>
@@ -11,15 +16,7 @@ $_Product = new Product();
 </div>
 
 <nav class="navbar navbar-inverse">
-    <script>
-    $(document).ready(function(){
-        $('.dropdown-submenu a.test').on("click", function(e){
-            $(this).next('ul').toggle();
-            e.stopPropagation();
-            e.preventDefault();
-        });
-    });
-    </script>
+
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -58,6 +55,25 @@ $_Product = new Product();
                         </ul>
                     </li>
 
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Products
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a tabindex="-1" href="addproduct.php">Add Product</a></li>
+                                <li><a tabindex="-1" href="orderproduct.php">Order Product</a></li>
+                                <li><a tabindex="-1" href="productrecipt.php">Product For Store</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">User Management
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a tabindex="-1" href="registration.php">Add User</a></li>
+                                    <li><a tabindex="-1" href="addrole.php">Manage Role</a></li>
+                                </ul>
+                            </li>
+
 
                 </ul>
 
@@ -82,5 +98,14 @@ $_Product = new Product();
                     </ul>
                 </div>
             </div>
+            <script>
+            $(document).ready(function(){
+                $('.dropdown-submenu a.test').on("click", function(e){
+                    $(this).next('ul').toggle();
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+            });
+            </script>
 
         </nav>

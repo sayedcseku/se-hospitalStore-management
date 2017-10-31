@@ -20,6 +20,7 @@ if(isset($_POST['order'])){
 	{
 	die("Database query not working. " . mysqli_error($connection));
   }
+  
   $order_id = mysqli_insert_id($connection);
 	foreach($_SESSION['cart'] as $id => $value) {
 		$amount = $_SESSION['cart'][$id]['quantity'];
