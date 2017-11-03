@@ -6,6 +6,21 @@ if(!$_SESSION['email'])
 {
     header("Location: login.php");//redirect to login page to secure the welcome page without login access.
 }
+if(isset($_GET['edit'])){
+    $id = $_GET['edit'];
+    $ledger = $_Product->getLedger($id);
+    if(isset($_POST['update'])){
+        $ledger_name = trim($_POST['ledger_name']);
+        echo $ledger_name;
+        $_Product->updateLedger($id,$ledger_name);
+
+    }
+}
+if(isset($_GET['del'])){
+    $id = $_GET['del'];
+    $ledger= $_Product->deleteLedger($id);
+}
+
 if(isset($_POST['submit'])){
 
 	  $data_missing = array();
@@ -78,11 +93,25 @@ if(isset($_POST['submit'])){
 			</div>
 			<table class="table table-condensed">
 				<tr>
-					<td>Name :</td><td><input type="text" name="ledger_name" placeholder="Ledger Name" class="form-control"></td>
+					<td>Name :</td><td><input type="text" name="ledger_name" value="<?php
+                    if(isset($_GET['edit'])){
+                        echo $ledger['type_name'];
+                    }
+                     ?>" placeholder="Ledger Name" class="form-control"></td>
 				</tr>
 				<div class="right"  >
 					<tr>
-						<td></td><td><input type="submit"  name="submit" value="&nbsp;&nbsp;  Submit &nbsp; &nbsp;" class="btn btn-primary btn-block"  ></td>
+						<td></td><td><input type="submit"
+                             name=<?php if(isset($_GET['edit']))
+                            echo "update";
+                            else
+                                echo "submit";
+                     ?> value="&nbsp;&nbsp;
+                            <?php if(isset($_GET['edit']))
+                                echo "Update";
+                                else
+                                    echo "Submit";
+                         ?> &nbsp; &nbsp;" class="btn btn-primary btn-block"  ></td>
 					</tr>
 				</div>
 

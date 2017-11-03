@@ -62,6 +62,7 @@ $_Product = new Product();
                                 <li><a tabindex="-1" href="addproduct.php">Add Product</a></li>
                                 <li><a tabindex="-1" href="orderproduct.php">Order Product</a></li>
                                 <li><a tabindex="-1" href="productrecipt.php">Product For Store</a></li>
+                                <li><a tabindex="-1" href="approve_order.php">Approve Order</a></li>
 
                             </ul>
                         </li>

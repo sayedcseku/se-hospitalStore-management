@@ -8,6 +8,43 @@ class Product
     {
 
     }
+    public function updateLedger($id,$name)
+    {
+        $sql = "update product_type set type_name = '$name' where id = $id";
+        $result = mysqli_query(mysqli_connect("localhost","root","","hstore"), $sql);
+        //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        if (isset($result))
+            return $result;
+        else
+        {
+            die("Database query not working. ");
+        }
+    }
+    public function getLedger($id)
+    {
+        $sql = "SELECT * from product_type where id = $id";
+        $result = mysqli_query(mysqli_connect("localhost","root","","hstore"), $sql);
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+        if (isset($row))
+            return $row;
+        else
+        {
+            die("Database query not working. ");
+        }
+
+    }
+    public function deleteLedger($id)
+    {
+        $sql = "delete from product_type where id = $id";
+        $result = mysqli_query(mysqli_connect("localhost","root","","hstore"), $sql);
+        //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        if (isset($result))
+            return $result;
+        else
+        {
+            die("Database query not working. ");
+        }
+    }
     public function getAllOrder()
     {
         $sql = "SELECT
@@ -98,7 +135,7 @@ class Product
         ON
         reciepts.id = product_for_store.r_id
         WHERE
-        product_for_store.p_id = 1
+        product_for_store.p_id = $id
         ORDER BY
         DATE ASC;";
 
@@ -114,7 +151,7 @@ class Product
     public function getProvidedProductInLedger($id){
         $sql = "SELECT
         orders.g_date AS DATE,
-        (users.fname + ' ' + users.lname) AS u_name,
+         users.fname, users.lname,
         orders.g_amount AS given,
         orders.after_amount AS a_amount
         FROM
@@ -132,7 +169,7 @@ class Product
         ON
         users.id = orders.user_id
         WHERE
-        product_order.p_id = 1
+        product_order.p_id = $id
         ORDER BY
         DATE ASC";
 

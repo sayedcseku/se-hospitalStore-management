@@ -3,12 +3,13 @@
 session_start();
 include_once 'controller/product.php';
 $_Product = new Product();
+$user_id = $_SESSION['user_id'];
+$date = date("Y/m/d");
+$connection = mysqli_connect("localhost","root","","hstore");
 
-if(isset($_POST['order'])){
+function generateOrderNo($user_id,$date)
+{
 	$connection = mysqli_connect("localhost","root","","hstore");
-	$user_id = $_SESSION['user_id'];
-	$date = date("Y/m/d");
-
 	$query = "INSERT INTO orders(o_date, user_id) VALUES ('$date',$user_id);";
 
 	$result = mysqli_query($connection, $query);
@@ -20,9 +21,16 @@ if(isset($_POST['order'])){
 	{
 	die("Database query not working. " . mysqli_error($connection));
   }
-  
-  $order_id = mysqli_insert_id($connection);
+  return mysqli_insert_id($connection);
+
+
+}
+if(isset($_POST['order'])){
+
+
 	foreach($_SESSION['cart'] as $id => $value) {
+
+		 $order_id = generateOrderNo($user_id,$date);
 		$amount = $_SESSION['cart'][$id]['quantity'];
 		$query = "INSERT INTO product_order(order_no,p_id, o_amount) VALUES ('$order_id','$id','$amount');";
 		$result = mysqli_query($connection, $query);

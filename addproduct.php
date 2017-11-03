@@ -195,6 +195,9 @@ if(!$_SESSION['email'])
 
 </div>
 
+
+
+
 	<?php include_once 'template/footer.php'; ?>
 </body>
 

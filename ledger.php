@@ -172,8 +172,6 @@ if(isset($_GET['product']))
                 $var1.= '    <th>Date</th>';
                 $var1.=     ' <th>Quantity Before</th>';
                 $var1.=   '  <th>Recieved</th>';
-                //$var1.= '    <th>Ordered By</th>';
-                //$var1.=     ' <th>Given Quantity</th>';
                 $var1.=   '  <th>Quantity After</th>';
                 $var1.=   '  <th>Remark</th>';
 
@@ -215,7 +213,7 @@ if(isset($_GET['product']))
     {
         ?>
         <div class="panel-heading text-center" style="background-color: rgba(7,71,166,0.62)">
-            <b>Recieved Product</b></div>
+            <b>Given Product</b></div>
         <br>
 
         <p>Product ID: <?php echo $product_id; ?></p>
@@ -234,8 +232,8 @@ if(isset($_GET['product']))
             $var1.=   '  <tr style="background-color: rgba(7,71,166,0.62)">';
 
                 $var1.= '    <th>Date</th>';
-                $var1.=     ' <th>Quantity Before</th>';
-                $var1.= '    <th>Ordered By</th>';
+                $var1.= '    <th>Orderer First Name</th>';
+                $var1.= '    <th>Orderer Last Name</th>';
                 $var1.=     ' <th>Given Quantity</th>';
                 $var1.=   '  <th>Quantity After</th>';
                 $var1.=   '  <th>Remark</th>';
@@ -249,7 +247,8 @@ if(isset($_GET['product']))
                     ?>
                     <tr>
                         <td><?php echo $row['DATE']; ?></td>
-                        <td><?php echo $row['u_name']; ?></td>
+                        <td><?php echo $row['fname']; ?></td>
+                        <td><?php echo $row['lname']; ?></td>
                         <td><?php echo $row['given']; ?></td>
                         <td><?php echo $row['a_amount']; ?></td>
                         <td><?php echo 'Null for now'; ?></td>

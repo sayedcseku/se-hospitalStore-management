@@ -106,7 +106,6 @@ if(!$_SESSION['email'])
   <div class="container">
 
 
-
 				<form name="Recieptform" action="productrecipt.php" method="POST" >
 
           <div class="center">
@@ -184,7 +183,7 @@ if(!$_SESSION['email'])
 				<br>
 				<br>
 				<div class="modal-footer text-right">
-                <a href="addrecipt.php" >Add Reciept? Add!</a> <br>
+                <a href="recipt.php" >Add Reciept? Add!</a> <br>
 				<a href="addproduct.php">Add product? Add!</a> <br>
 
             </div>
